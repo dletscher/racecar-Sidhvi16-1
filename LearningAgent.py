@@ -30,3 +30,20 @@ class Agent:
 
 	def train(self, repetitions):
 		pass
+from MyData import load_data, save_data
+
+class LearningAgent:
+    def __init__(self):
+        # Load saved coefficients or defaults at start
+        self.coeffs = load_data()
+
+    def update_coefficients(self, new_values: dict):
+        # Update your coefficients with learned values
+        self.coeffs.update(new_values)
+
+    def save(self):
+        # Save updated coefficients for next run
+        save_data(self.coeffs)
+
+    # Your agent logic here that updates self.coeffs as it learns...
+
